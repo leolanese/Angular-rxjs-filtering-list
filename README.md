@@ -1,6 +1,6 @@
 # Angular rxjs filtering list
 
-Angular filtering list Array of Object debouncing the speed type and only emitting when the current value is different than the last.
+Angular filtering list Array of Object debouncing the speed type
 
 ---
 ### :100: <i>Thanks!</i>
