@@ -1,5 +1,4 @@
 <input type="text" [formControl]="filter" placeholder="Filter states...">
-
 <ul>
-  <li *ngFor="let state of filteredStates$ | async">{{state.name}}</li>
+	<li *ngFor="let country of filteredCountry$ | async">{{country.name}}</li>
 </ul>
