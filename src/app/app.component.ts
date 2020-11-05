@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { map, startWith } from "rxjs/operators";
 import { combineLatest, Observable, of } from "rxjs";
 import { FormControl } from "@angular/forms";
-import { State, states } from "./state";
+import { debounceTime, distinctUntilChanged }  from "rxjs/operators";
 import { Country, countries } from "./countries";
 
 @Component({
@@ -13,7 +13,9 @@ import { Country, countries } from "./countries";
 export class AppComponent {
   countries$: Observable<Country[]>;
 
+  // Data describing 
   filteredCountry$: Observable<Country[]>;
+  
   filter: FormControl;
   filter$: Observable<string>;
 
@@ -24,6 +26,8 @@ export class AppComponent {
     this.filter$ = this.filter.valueChanges.pipe(startWith(""));
 
     this.filteredCountry$ = combineLatest(this.countries$, this.filter$).pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
       map(([countries, filterString]) =>
         countries.filter(country =>
           country.name.toLowerCase().includes(filterString)
