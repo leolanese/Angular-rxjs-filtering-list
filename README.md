@@ -3,7 +3,7 @@
 Angular filtering list Array of Object debouncing the speed type
 
 * Demo<br>
-https://angular-filtering-rxjs-debounce.stackblitz.io
+<a href="https://angular-filtering-rxjs-debounce.stackblitz.io" target="_blank">Demo Filtering angular with rxjs</a>
 
 ---
 ### :100: <i>Thanks!</i>
