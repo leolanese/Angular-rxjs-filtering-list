@@ -27,7 +27,6 @@ export class AppComponent {
 
     this.filteredCountry$ = combineLatest(this.countries$, this.filter$).pipe(
       debounceTime(500),
-      distinctUntilChanged(),
       map(([countries, filterString]) =>
         countries.filter(country =>
           country.name.toLowerCase().includes(filterString)
